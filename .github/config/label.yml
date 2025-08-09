@@ -1,92 +1,249 @@
 📊 metrics embed:
-  - source/app/action/**
-  - source/app/web/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/app/action/**
+      - source/app/web/**
+
 ✨ metrics insights:
-  - source/app/web/statics/insights/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/app/web/statics/insights/**
 
 🧩 plugins:
-  - source/plugins/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/**
+
 🖼️ templates:
-  - source/templates/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/templates/**
 
 🗃️ base:
-  - source/plugins/base/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/base/**
+
 🧱 core:
-  - source/app/metrics/**
-  - source/plugins/core/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/app/metrics/**
+      - source/plugins/core/**
+
+🚀 ci:
+  - changed-files:
+    - any-glob-to-any-file:
+      - .github/**
+
+⚙️ ci config:
+  - changed-files:
+    - any-glob-to-any-file:
+      - .github/config/**
+      - .github/ISSUE_TEMPLATE/**
+      - .github/FUNDING.yml
+      - .github/pull_request_template.md
+
+🦾 ci actions:
+  - changed-files:
+    - any-glob-to-any-file:
+      - .github/actions/**
+
+🦿 ci scripts:
+  - changed-files:
+    - any-glob-to-any-file:
+      - .github/scripts/**
+
+🖨️ ci docs:
+  - changed-files:
+    - any-glob-to-any-file:
+      - .github/readme/**
+      - .github/**/examples.yml
+      - .github/**/*.md
+      - '!.github/pull_request_template.md'
+      - .github/architecture.svg
+      - .github/scripts/markdown_example.mjs
+      - .github/scripts/presets_example.mjs
 
 🎲 community plugins:
-  - source/plugins/community/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/community/**
 
 🏆 plugin achievements:
-  - source/plugins/achievements/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/achievements/**
 📰 plugin activity:
-  - source/plugins/activity/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/activity/**
+
 🌸 plugin anilist:
-  - source/plugins/anilist/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/anilist/**
+
 📆 plugin calendar:
-  - source/plugins/calendar/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/calendar/**
+
 ♐ plugin code:
-  - source/plugins/code/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/code/**
+
 🏅 plugin contributors:
-  - source/plugins/contributors/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/contributors/**
+
 💬 plugin discussions:
-  - source/plugins/discussions/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/discussions/**
+
 🎟️ plugin followup:
-  - source/plugins/followup/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/followup/**
+
 🎫 plugin gists:
-  - source/plugins/gists/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/gists/**
+
 💡 plugin habits:
-  - source/plugins/habits/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/habits/**
+
 🙋 plugin introduction:
-  - source/plugins/introduction/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/introduction/**
+
 📅 plugin isocalendar:
-  - source/plugins/isocalendar/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/isocalendar/**
+
 🈷️ plugin languages:
-  - source/plugins/languages/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/languages/**
+
 🗳️ plugin leetcode:
-  - source/plugins/leetcode/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/leetcode/**
+
 📜 plugin licenses:
-  - source/plugins/licenses/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/licenses/**
+
 👨‍💻 plugin lines:
-  - source/plugins/lines/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/lines/**
+
 🎼 plugin music:
-  - source/plugins/music/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/music/**
+
 🎩 plugin notable:
-  - source/plugins/notable/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/notable/**
+
 ⏱️ plugin pagespeed:
-  - source/plugins/pagespeed/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/pagespeed/**
+
 🧑‍🤝‍🧑 plugin people:
-  - source/plugins/people/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/people/**
+
 ✒️ plugin posts:
-  - source/plugins/posts/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/posts/**
+
 🗂️ plugin projects:
-  - source/plugins/projects/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/projects/**
+
 🎭 plugin reactions:
-  - source/plugins/reactions/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/reactions/**
+
 📓 plugin repositories:
-  - source/plugins/repositories/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/repositories/**
+
 🗼 plugin rss:
-  - source/plugins/rss/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/rss/**
+
 🌇 plugin skyline:
-  - source/plugins/skyline/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/skyline/**
+
 💕 plugin sponsors:
-  - source/plugins/sponsors/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/sponsors/**
+
 🗨️ plugin stackoverflow:
-  - source/plugins/stackoverflow/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/stackoverflow/**
+
 ✨ plugin stargazers:
-  - source/plugins/stargazers/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/stargazers/**
+
 💫 plugin starlists:
-  - source/plugins/starlists/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/starlists/**
+
 🌟 plugin stars:
-  - source/plugins/stars/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/stars/**
+
 💭 plugin support:
-  - source/plugins/support/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/support/**
+
 📌 plugin topics:
-  - source/plugins/topics/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/topics/**
+
 🧮 plugin traffic:
-  - source/plugins/traffic/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/traffic/**
+
 🐤 plugin tweets:
-  - source/plugins/tweets/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/tweets/**
+
 ⏰ plugin wakatime:
-  - source/plugins/wakatime/**
+  - changed-files:
+    - any-glob-to-any-file:
+      - source/plugins/wakatime/**
