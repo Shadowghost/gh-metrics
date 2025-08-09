@@ -822,7 +822,7 @@
                     issues: {
                       totalCount: faker.number.int(100),
                     },
-                    nameWithOwner: "lowlighter/metrics",
+                    nameWithOwner: "Shadowghost/gh-metrics",
                     openGraphImageUrl: "https://repository-images.githubusercontent.com/293860197/7fd72080-496d-11eb-8fe0-238b38a0746a",
                     pullRequests: {
                       totalCount: faker.number.int(100),
@@ -870,7 +870,7 @@
                   description: !i
                     ? "📊 An image generator with 20+ metrics about your GitHub account such as activity, community, repositories, coding habits, website performances, music played, starred topics, etc. that you can put on your profile or elsewhere !"
                     : faker.lorem.sentence(),
-                  name: !i ? "lowlighter/metrics" : `${faker.lorem.word()}/${faker.lorem.word()}`,
+                  name: !i ? "Shadowghost/gh-metrics" : `${faker.lorem.word()}/${faker.lorem.word()}`,
                 })),
               })),
             },

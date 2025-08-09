@@ -40,7 +40,7 @@ jobs:
 
   examples:
     runs-on: ubuntu-latest
-    if: "github.repository == 'lowlighter/metrics'"
+    if: "github.repository == 'Shadowghost/gh-metrics'"
     steps:
       - name: Checkout repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
@@ -50,7 +50,7 @@ jobs:
         run: git checkout examples
 
       - name: 🗃️ Base content - Default metrics
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.base.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -61,7 +61,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🧱 Core - Organization
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.organization.svg
           user: github
@@ -72,7 +72,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🧱 Core - Large display
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.large.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -84,7 +84,7 @@ jobs:
         if: ${{ success() || failure() }}
       - name: 🧱 Core - JSON metrics
         if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.example.json
           token: ${{ secrets.METRICS_TOKEN }}
@@ -95,7 +95,7 @@ jobs:
           plugins_errors_fatal: yes
       - name: 🧱 Core - PNG metrics
         if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.example.png
           token: ${{ secrets.METRICS_TOKEN }}
@@ -106,7 +106,7 @@ jobs:
           plugins_errors_fatal: yes
       - name: 🧱 Core - Metrics insights
         if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.insights.html
           token: ${{ secrets.METRICS_TOKEN }}
@@ -116,7 +116,7 @@ jobs:
           user: lowlighter
           plugins_errors_fatal: yes
       - name: 🧱 Core - Plugin error example
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.error.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -128,7 +128,7 @@ jobs:
           user: lowlighter
         if: ${{ success() || failure() }}
       - name: 📅 Isometric commit calendar - Half-year calendar
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.isocalendar.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -140,7 +140,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📅 Isometric commit calendar - Full-year calendar
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.isocalendar.fullyear.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -153,7 +153,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🈷️ Languages activity - Most used
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.languages.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -169,7 +169,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🈷️ Languages activity - Most used (with details)
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.languages.details.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -186,7 +186,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🈷️ Languages activity - Recently used
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.languages.recent.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -204,7 +204,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🈷️ Languages activity - Indepth analysis
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.languages.indepth.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -223,7 +223,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ✨ Stargazers - Using classic charts
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.stargazers.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -235,7 +235,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ✨ Stargazers - Using graph charts
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.stargazers.graph.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -248,7 +248,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ✨ Stargazers - With worldmap
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.stargazers.worldmap.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -264,7 +264,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 👨‍💻 Lines of code changed - Compact display in base plugin
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.lines.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -277,7 +277,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 👨‍💻 Lines of code changed - Repositories and diff history
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.lines.history.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -290,14 +290,14 @@ jobs:
           repositories_skipped: |
             @use.patterns
             */*
-            +lowlighter/metrics
+            +Shadowghost/gh-metrics
           output_action: none
           delay: 120
           user: lowlighter
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📌 Starred topics - Labels
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.topics.svg
           token: NOT_NEEDED
@@ -310,7 +310,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📌 Starred topics - Icons
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.topics.icons.svg
           token: NOT_NEEDED
@@ -324,7 +324,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🌟 Recently starred repositories - Recently starred
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.stars.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -350,9 +350,9 @@ jobs:
           user: lowlighter
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
       - name: 📜 Repository licenses - Licenses with open-source ratio graphs
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.licenses.ratio.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -369,7 +369,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 💡 Coding habits and activity - Mildly interesting facts
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.habits.facts.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -384,7 +384,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 💡 Coding habits and activity - Recent activity charts
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.habits.charts.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -399,7 +399,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🏅 Repository contributors - Contributors with contributions count
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.contributors.contributions.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -414,7 +414,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🏅 Repository contributors - Contributors by categories
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.contributors.categories.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -435,7 +435,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎟️ Follow-up of issues and pull requests - Opened on user's repositories
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.followup.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -447,7 +447,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎟️ Follow-up of issues and pull requests - Opened by user
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.followup.user.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -460,7 +460,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎟️ Follow-up of issues and pull requests - Indepth analysis
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.followup.indepth.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -473,7 +473,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎭 Comment reactions - Comment reactions
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.reactions.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -487,7 +487,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🧑‍🤝‍🧑 People - Followers
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.people.followers.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -500,7 +500,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🧑‍🤝‍🧑 People - Contributors and sponsors
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.people.repository.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -515,7 +515,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 💝 GitHub Sponsorships - 💝 GitHub Sponsorships
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.sponsorships.svg
           token: ${{ secrets.METRICS_TOKEN_PERSONAL }}
@@ -527,7 +527,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 💕 GitHub Sponsors - Sponsors goal
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.sponsors.svg
           token: ${{ secrets.METRICS_TOKEN_PERSONAL }}
@@ -541,7 +541,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 💕 GitHub Sponsors - Sponsors introduction
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.sponsors.full.svg
           token: ${{ secrets.METRICS_TOKEN_WITH_SCOPES }}
@@ -553,20 +553,20 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📓 Featured repositories - Featured repositories
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.repositories.svg
           token: ${{ secrets.METRICS_TOKEN }}
           base: ""
           plugin_repositories: yes
-          plugin_repositories_featured: lowlighter/metrics
+          plugin_repositories_featured: Shadowghost/gh-metrics
           output_action: none
           delay: 120
           user: lowlighter
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📓 Featured repositories - Pinned repositories
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.repositories.pinned.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -579,7 +579,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 💬 Discussions - GitHub Discussions
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.discussions.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -592,7 +592,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 💫 Star lists - Featured star list
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.starlists.svg
           token: NOT_NEEDED
@@ -606,7 +606,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 💫 Star lists - Featured star list languages
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.starlists.languages.svg
           token: NOT_NEEDED
@@ -622,7 +622,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📆 Commit calendar - Current year calendar
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.calendar.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -634,7 +634,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📆 Commit calendar - Full history calendar
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.calendar.full.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -647,7 +647,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🏆 Achievements - Detailed display
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.achievements.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -660,7 +660,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🏆 Achievements - Compact display
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.achievements.compact.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -677,7 +677,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎩 Notable contributions - Contributions
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.notable.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -689,7 +689,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎩 Notable contributions - Indepth analysis
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.notable.indepth.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -703,7 +703,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📰 Recent activity - Recent activity
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.activity.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -718,7 +718,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🧮 Repositories traffic - Repositories traffic
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.traffic.svg
           token: ${{ secrets.METRICS_TOKEN_WITH_SCOPES }}
@@ -730,7 +730,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ♐ Random code snippet - JavaScript or TypeScript snippet of the day
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.code.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -744,7 +744,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎫 Gists - Gists
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.gists.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -756,13 +756,13 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🗂️ GitHub projects - Project from a repository
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.projects.svg
           token: ${{ secrets.METRICS_TOKEN_WITH_SCOPES }}
           base: ""
           plugin_projects: yes
-          plugin_projects_repositories: lowlighter/metrics/projects/1
+          plugin_projects_repositories: Shadowghost/gh-metrics/projects/1
           plugin_projects_descriptions: yes
           output_action: none
           delay: 120
@@ -770,7 +770,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🙋 Introduction - Organization introduction
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.introduction.svg
           token: ${{ secrets.METRICS_TOKEN_WITH_SCOPES }}
@@ -782,7 +782,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🙋 Introduction - Repository introduction
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.introduction.repository.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -796,7 +796,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ⏱️ Google PageSpeed - Succinct report
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.pagespeed.svg
           token: NOT_NEEDED
@@ -810,7 +810,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ⏱️ Google PageSpeed - Detailed report
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.pagespeed.detailed.svg
           token: NOT_NEEDED
@@ -825,7 +825,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ⏱️ Google PageSpeed - Screenshot
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.pagespeed.screenshot.svg
           token: NOT_NEEDED
@@ -840,7 +840,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🗨️ Stack Overflow - Top answers from stackoverflow
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.stackoverflow.svg
           token: NOT_NEEDED
@@ -857,7 +857,7 @@ jobs:
       - name: >-
           🌸 Anilist watch list and reading list - Favorites anime and currently
           watching
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.anilist.svg
           token: NOT_NEEDED
@@ -874,7 +874,7 @@ jobs:
       - name: >-
           🌸 Anilist watch list and reading list - Favorites manga and currently
           reading
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.anilist.manga.svg
           token: NOT_NEEDED
@@ -889,7 +889,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🌸 Anilist watch list and reading list - Favorites characters
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.anilist.characters.svg
           token: NOT_NEEDED
@@ -903,7 +903,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎼 Music activity and suggestions - Apple Music - Random track from playlist
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.music.playlist.svg
           token: NOT_NEEDED
@@ -917,7 +917,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎼 Music activity and suggestions - Spotify - Random track from playlist
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.music.playlist.spotify.svg
           token: NOT_NEEDED
@@ -930,7 +930,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎼 Music activity and suggestions - Spotify - Recently listed
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.music.recent.svg
           token: NOT_NEEDED
@@ -946,7 +946,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎼 Music activity and suggestions - Spotify - Top tracks
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           token: NOT_NEEDED
           base: ""
@@ -962,7 +962,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎼 Music activity and suggestions - Spotify - Top artists
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           token: NOT_NEEDED
           base: ""
@@ -980,7 +980,7 @@ jobs:
       - name: >-
           🎼 Music activity and suggestions - Youtube Music - Random track from
           playlist
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           token: NOT_NEEDED
           base: ""
@@ -993,7 +993,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ✒️ Recent posts - Recent posts
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.posts.svg
           token: NOT_NEEDED
@@ -1006,7 +1006,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ✒️ Recent posts - Recent posts with descriptions and cover images
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.posts.full.svg
           token: NOT_NEEDED
@@ -1022,7 +1022,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🗼 Rss feed - News from hackernews
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.rss.svg
           token: NOT_NEEDED
@@ -1036,7 +1036,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ⏰ WakaTime - WakaTime
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.wakatime.svg
           token: NOT_NEEDED
@@ -1051,7 +1051,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🗳️ Leetcode - LeetCode
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.leetcode.svg
           token: NOT_NEEDED
@@ -1064,7 +1064,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🕹️ Steam - Recently played games
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.steam.svg
           token: NOT_NEEDED
@@ -1081,7 +1081,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🕹️ Steam - Profile and detailed game history
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.steam.full.svg
           token: NOT_NEEDED
@@ -1096,7 +1096,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🧠 16personalities - MBTI Personality profile
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.16personalities.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -1111,7 +1111,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ♟️ Chess - Last chess game from lichess.org
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.chess.svg
           token: NOT_NEEDED
@@ -1125,7 +1125,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🥠 Fortune - Fortune
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.fortune.svg
           token: NOT_NEEDED
@@ -1137,7 +1137,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📸 Website screenshot - XKCD of the day
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.screenshot.svg
           token: NOT_NEEDED
@@ -1152,7 +1152,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 💹 Stock prices - Stock prices from Tesla
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.plugin.stock.svg
           token: NOT_NEEDED
@@ -1166,7 +1166,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📗 Classic template - Example
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.classic.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -1178,7 +1178,7 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📘 Repository template - Example
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           template: repository
           filename: metrics.repository.svg
@@ -1188,13 +1188,13 @@ jobs:
           plugin_lines: yes
           plugin_followup: yes
           plugin_projects: yes
-          plugin_projects_repositories: lowlighter/metrics/projects/1
+          plugin_projects_repositories: Shadowghost/gh-metrics/projects/1
           output_action: none
           delay: 120
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📙 Terminal template - Example
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           template: terminal
           filename: metrics.terminal.svg
@@ -1206,12 +1206,12 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📒 Markdown template - Example
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           template: markdown
           filename: metrics.markdown.md
           markdown: >-
-            https://raw.githubusercontent.com/lowlighter/metrics/examples/metrics.markdown.template.md
+            https://raw.githubusercontent.com/Shadowghost/gh-metrics/examples/metrics.markdown.template.md
           config_output: markdown
           token: ${{ secrets.METRICS_TOKEN }}
           output_action: commit
@@ -1221,12 +1221,12 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📒 Markdown template - Example with plugins configuration for embed use
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           template: markdown
           filename: metrics.markdown.full.md
           markdown: >-
-            https://raw.githubusercontent.com/lowlighter/metrics/master/source/templates/markdown/example.md
+            https://raw.githubusercontent.com/Shadowghost/gh-metrics/master/source/templates/markdown/example.md
           config_output: markdown
           plugin_activity: yes
           plugin_activity_limit: 7
@@ -1252,12 +1252,12 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📒 Markdown template - Example (pdf output)
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           template: markdown
           filename: metrics.markdown.pdf
           markdown: >-
-            https://raw.githubusercontent.com/lowlighter/metrics/master/source/templates/markdown/example.pdf.md
+            https://raw.githubusercontent.com/Shadowghost/gh-metrics/master/source/templates/markdown/example.pdf.md
           config_output: markdown-pdf
           plugin_rss: yes
           plugin_rss_source: https://news.ycombinator.com/rss
@@ -1273,22 +1273,22 @@ jobs:
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📕 Community templates - Using a community template
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           template: "@classic"
-          setup_community_templates: lowlighter/metrics@master:classic
+          setup_community_templates: Shadowghost/gh-metrics@master:classic
           output_action: none
           delay: 120
           user: lowlighter
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📕 Community templates - Using a trusted community template
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           template: "@terminal"
-          setup_community_templates: lowlighter/metrics@master:terminal+trust
+          setup_community_templates: Shadowghost/gh-metrics@master:terminal+trust
           output_action: none
           delay: 120
           user: lowlighter
@@ -1299,7 +1299,7 @@ jobs:
       - name: Screenshot markdown example
         if: ${{ success() || failure() }}
         run: |
-          docker run --rm --entrypoint="" --volume=/tmp:/tmp ghcr.io/lowlighter/metrics:master node /metrics/.github/scripts/markdown_example.mjs
+          docker run --rm --entrypoint="" --volume=/tmp:/tmp ghcr.io/Shadowghost/gh-metrics:master node /metrics/.github/scripts/markdown_example.mjs
           sudo mv /tmp/metrics.markdown.png /metrics_renders/
       - name: Publish examples
         if: ${{ success() || failure() }}
@@ -1316,13 +1316,13 @@ jobs:
           git push --force
 
 # ======================================================================================
-# Special job used to render lowlighter/metrics repository assets
+# Special job used to render Shadowghost/gh-metrics repository assets
 # ======================================================================================
 
   repository:
     runs-on: ubuntu-latest
     needs: [ examples ]
-    if: "github.repository == 'lowlighter/metrics'"
+    if: "github.repository == 'Shadowghost/gh-metrics'"
     steps:
       - name: Checkout repository
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
@@ -1333,7 +1333,7 @@ jobs:
 
       - name: Contributors
         if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.contributors.svg
           token: ${{ secrets.METRICS_TOKEN }}
@@ -1349,7 +1349,7 @@ jobs:
           delay: 120
       - name: Sponsors
         if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.sponsors.svg
           token: ${{ secrets.METRICS_TOKEN_PERSONAL }}
@@ -1365,7 +1365,7 @@ jobs:
           delay: 120
       - name: Licenses
         if: ${{ success() || failure() }}
-        uses: lowlighter/metrics@master
+        uses: Shadowghost/gh-metrics@master
         with:
           filename: metrics.licenses.svg
           token: ${{ secrets.METRICS_TOKEN }}

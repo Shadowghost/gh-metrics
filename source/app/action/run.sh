@@ -54,7 +54,7 @@ if [[ $METRICS_SOURCE == "lowlighter" ]]; then
       METRICS_TAG="$METRICS_TAG-beta"
       echo "Image tag (updated): $METRICS_TAG"
     fi
-    METRICS_IMAGE=ghcr.io/lowlighter/metrics:$METRICS_TAG
+    METRICS_IMAGE=ghcr.io/Shadowghost/gh-metrics:$METRICS_TAG
     echo "Using pre-built version $METRICS_TAG, will pull docker image from GitHub registry"
     if ! docker image pull $METRICS_IMAGE; then
       echo "Failed to fetch docker image from GitHub registry, will rebuild it locally"

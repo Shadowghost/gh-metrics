@@ -176,7 +176,7 @@ function testcase(name, env, args) {
 
   if (env === "prod") {
     result.if = "${{ success() || failure() }}"
-    result.uses = "lowlighter/metrics@master"
+    result.uses = "Shadowghost/gh-metrics@master"
     Object.assign(result.with, {output_action: "none", delay: 120})
 
     for (const {property, value} of [{property: "user", value: "lowlighter"}, {property: "plugins_errors_fatal", value: "yes"}]) {

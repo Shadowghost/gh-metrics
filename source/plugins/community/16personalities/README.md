@@ -20,7 +20,7 @@ All product and company names are trademarks™ or registered® trademarks of th
   </tr>
   <tr>
     <td colspan="2" align="center">
-      <img src="https://github.com/lowlighter/metrics/blob/examples/metrics.plugin.16personalities.svg" alt=""></img>
+      <img src="https://github.com/Shadowghost/gh-metrics/blob/examples/metrics.plugin.16personalities.svg" alt=""></img>
       <img width="900" height="1" alt="">
     </td>
   </tr>
@@ -95,7 +95,7 @@ Login with the generated password received in your mailbox and copy the link tha
 <!--examples-->
 ```yaml
 name: MBTI Personality profile
-uses: lowlighter/metrics@latest
+uses: Shadowghost/gh-metrics@latest
 with:
   filename: metrics.plugin.16personalities.svg
   token: ${{ secrets.METRICS_TOKEN }}

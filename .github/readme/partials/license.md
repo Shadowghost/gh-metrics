@@ -5,4 +5,4 @@ MIT License
 Copyright (c) 2020-present lowlighter
 ```
 
-![Sponsors](https://github.com/lowlighter/metrics/blob/examples/metrics.sponsors.svg)
+![Sponsors](https://github.com/Shadowghost/gh-metrics/blob/examples/metrics.sponsors.svg)

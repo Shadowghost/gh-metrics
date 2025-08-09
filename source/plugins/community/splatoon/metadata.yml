@@ -10,7 +10,7 @@ disclaimer: |
 
   Note that *Nintendo Switch Online* web tokens usage are not explicitly allowed by *Nintendo*, use at your own risk.
 examples:
-  default: https://github.com/lowlighter/metrics/blob/examples/metrics.plugin.splatoon.svg
+  default: https://github.com/Shadowghost/gh-metrics/blob/examples/metrics.plugin.splatoon.svg
 authors:
   - lowlighter
 supports:

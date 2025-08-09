@@ -16,7 +16,7 @@
   </tr>
   <tr>
     <td colspan="2" align="center">
-      <img src="https://github.com/lowlighter/metrics/blob/examples/metrics.repository.svg" alt=""></img>
+      <img src="https://github.com/Shadowghost/gh-metrics/blob/examples/metrics.repository.svg" alt=""></img>
       <img width="900" height="1" alt="">
     </td>
   </tr>
@@ -29,9 +29,9 @@ To use a repository template, a `repo` handle must be provided.
 
 If the token owner is not the repository owner, then the `user` option must be set to the repository owner (whether it is an user or organization account).
 
-*Example: render `lowlighter/metrics` repository*
+*Example: render `Shadowghost/gh-metrics` repository*
 ```yml
-- uses: lowlighter/metrics@latest
+- uses: Shadowghost/gh-metrics@latest
   with:
     template: repository
     user: lowlighter
@@ -43,7 +43,7 @@ If the token owner is not the repository owner, then the `user` option must be s
 <!--examples-->
 ```yaml
 name: Example
-uses: lowlighter/metrics@latest
+uses: Shadowghost/gh-metrics@latest
 with:
   template: repository
   filename: metrics.repository.svg
@@ -53,7 +53,7 @@ with:
   plugin_lines: yes
   plugin_followup: yes
   plugin_projects: yes
-  plugin_projects_repositories: lowlighter/metrics/projects/1
+  plugin_projects_repositories: Shadowghost/gh-metrics/projects/1
 
 ```
 <!--/examples-->

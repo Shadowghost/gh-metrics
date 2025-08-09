@@ -15,7 +15,7 @@ action.input = vars => Object.fromEntries([...Object.entries(action.defaults), .
 action.run = async vars =>
   await new Promise((solve, reject) => {
     let [stdout, stderr] = ["", ""]
-    const env = {...process.env, ...action.input(vars), GITHUB_REPOSITORY: "lowlighter/metrics"}
+    const env = {...process.env, ...action.input(vars), GITHUB_REPOSITORY: "Shadowghost/gh-metrics"}
     const child = processes.spawn("node", ["source/app/action/index.mjs"], {env})
     child.stdout.on("data", data => stdout += data)
     child.stderr.on("data", data => stderr += data)

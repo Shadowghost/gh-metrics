@@ -1,5 +1,5 @@
 - name: Top answers from stackoverflow
-  uses: lowlighter/metrics@latest
+  uses: Shadowghost/gh-metrics@latest
   with:
     filename: metrics.plugin.stackoverflow.svg
     token: NOT_NEEDED

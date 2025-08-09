@@ -1,5 +1,5 @@
 - name: Fortune
-  uses: lowlighter/metrics@latest
+  uses: Shadowghost/gh-metrics@latest
   with:
     filename: metrics.plugin.fortune.svg
     token: NOT_NEEDED

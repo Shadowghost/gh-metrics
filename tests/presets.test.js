@@ -15,7 +15,7 @@ try {
 catch {
   let {HEAD_REF: branch, REPO: repo} = process.env
   branch = branch || "presets"
-  repo = repo || "lowlighter/metrics"
+  repo = repo || "Shadowghost/gh-metrics"
   if (!/^[/-\w\d]+$/.test(branch))
     throw new Error(`invalid branch: ${branch}`)
   if (!/^[-\w\d]+\/[-\w\d]+$/.test(repo))

@@ -3,7 +3,7 @@ category: community
 description: |
   This plugins displays a random fortune message
 examples:
-  default: https://github.com/lowlighter/metrics/blob/examples/metrics.plugin.fortune.svg
+  default: https://github.com/Shadowghost/gh-metrics/blob/examples/metrics.plugin.fortune.svg
 authors:
   - lowlighter
 supports:

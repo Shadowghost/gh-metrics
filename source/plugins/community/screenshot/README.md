@@ -18,7 +18,7 @@
   </tr>
   <tr>
     <td colspan="2" align="center">
-      <img src="https://github.com/lowlighter/metrics/blob/examples/metrics.plugin.screenshot.svg" alt=""></img>
+      <img src="https://github.com/Shadowghost/gh-metrics/blob/examples/metrics.plugin.screenshot.svg" alt=""></img>
       <img width="900" height="1" alt="">
     </td>
   </tr>
@@ -137,7 +137,7 @@
 <!--examples-->
 ```yaml
 name: XKCD of the day
-uses: lowlighter/metrics@latest
+uses: Shadowghost/gh-metrics@latest
 with:
   filename: metrics.plugin.screenshot.svg
   token: NOT_NEEDED

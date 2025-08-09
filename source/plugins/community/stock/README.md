@@ -17,7 +17,7 @@
   </tr>
   <tr>
     <td colspan="2" align="center">
-      <img src="https://github.com/lowlighter/metrics/blob/examples/metrics.plugin.stock.svg" alt=""></img>
+      <img src="https://github.com/Shadowghost/gh-metrics/blob/examples/metrics.plugin.stock.svg" alt=""></img>
       <img width="900" height="1" alt="">
     </td>
   </tr>
@@ -123,7 +123,7 @@ Create a [RapidAPI account](https://rapidapi.com) and subscribe to [Yahoo Financ
 <!--examples-->
 ```yaml
 name: Stock prices from Tesla
-uses: lowlighter/metrics@latest
+uses: Shadowghost/gh-metrics@latest
 with:
   filename: metrics.plugin.stock.svg
   token: NOT_NEEDED
