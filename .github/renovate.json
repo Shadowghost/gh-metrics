@@ -1,0 +1,87 @@
+{
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "description": "Renovate NodeJS preset",
+    "extends": [
+        "config:base",
+        ":disableDependencyDashboard",
+        ":enableVulnerabilityAlertsWithLabel(security)",
+        ":semanticCommitsDisabled",
+        ":timezone(Etc/UTC)",
+        "docker:enableMajor",
+        "group:testNonMajor",
+        "group:monorepos",
+        "helpers:pinGitHubActionDigests",
+        ":pinAllExceptPeerDependencies"
+    ],
+    "npm": {
+        "stabilityDays": 7
+    },
+    "ignoreDeps": [
+        "npm",
+        "node"
+    ],
+    "addLabels": [
+        "dependencies"
+    ],
+    "rebaseWhen": "conflicted",
+    "ignorePaths": [
+        "**/node_modules/**"
+    ],
+    "lockFileMaintenance": {
+        "enabled": true,
+        "groupName": "lockfiles",
+        "schedule": [
+            "every month"
+        ]
+    },
+    "packageRules": [
+        {
+            "description": "Auto-merge GitHub Action bumps to one PR as long as they have no major jump",
+            "matchManagers": [
+                "github-actions",
+                "npm",
+                "docker"
+            ],
+            "matchUpdateTypes": [
+                "minor",
+                "patch"
+            ],
+            "automerge": true
+        },
+        {
+            "description": "Add the npm GitHub label to NPM dependency bump PRs",
+            "matchManagers": [
+                "npm"
+            ],
+            "addLabels": [
+                "npm"
+            ]
+        },
+        {
+            "description": "Add the container GitHub label to container image bump PRs",
+            "matchManagers": [
+                "docker"
+            ],
+            "addLabels": [
+                "container"
+            ]
+        },
+        {
+            "description": "Add the ci and github-actions GitHub label to GitHub Action bump PRs",
+            "matchManagers": [
+                "github-actions"
+            ],
+            "addLabels": [
+                "ci",
+                "github-actions"
+            ]
+        },
+        {
+            "matchUpdateTypes": [
+                "lockFileMaintenance"
+            ],
+            "groupName": "lockfiles",
+            "dependencyDashboardApproval": true
+        }
+    ]
+}
