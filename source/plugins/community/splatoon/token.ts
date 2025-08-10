@@ -1,5 +1,5 @@
 #!/usr/bin/env -S deno run --allow-run --allow-read=profile.json --allow-write=profile.json --unstable
-import { cyan, green, yellow, magenta, bgWhite, black, italic, red, white } from "https://deno.land/std@0.165.0/fmt/colors.ts";
+import { cyan, green, yellow, magenta, bgWhite, black, italic, red, white } from "https://deno.land/std@0.224.0/fmt/colors.ts";
 console.log([
   "",
   yellow('THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.'),

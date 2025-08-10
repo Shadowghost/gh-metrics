@@ -29,7 +29,14 @@ export default async function metadata({log = true, diff = false} = {}) {
   //Diff with latest version
   if (diff) {
     try {
-      previous = yaml.load(await fetch("https://raw.githubusercontent.com/Shadowghost/gh-metrics/latest/action.yml").then(response => response.text()))
+      const response = await fetch("https://raw.githubusercontent.com/Shadowghost/gh-metrics/latest/action.yml")
+      if (response.status === 404) {
+        logger("Primary URL returned 404, falling back to lowlighter repository")
+        const fallbackResponse = await fetch("https://raw.githubusercontent.com/lowlighter/metrics/latest/action.yml")
+        previous = yaml.load(await fallbackResponse.text())
+      } else {
+        previous = yaml.load(await response.text())
+      }
     }
     catch (error) {
       logger(error)

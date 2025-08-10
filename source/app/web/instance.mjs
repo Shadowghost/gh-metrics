@@ -1,6 +1,6 @@
 //Imports
-import octokit from "@octokit/graphql"
-import OctokitRest from "@octokit/rest"
+import { graphql as octokit } from "@octokit/graphql"
+import { Octokit } from "@octokit/rest"
 import axios from "axios"
 import compression from "compression"
 import crypto from "crypto"
@@ -54,7 +54,7 @@ export default async function({sandbox = false} = {}) {
     console.debug(util.inspect(conf.settings, {depth: Infinity, maxStringLength: 256}))
 
   //Load octokits
-  const api = {graphql: octokit.graphql.defaults({headers: {authorization: `token ${token}`}, baseUrl: conf.settings.api?.graphql ?? undefined}), rest: new OctokitRest.Octokit({auth: token, baseUrl: conf.settings.api?.rest ?? undefined})}
+  const api = { graphql: octokit.defaults({headers: {authorization: `token ${token}`}, baseUrl: conf.settings.api?.graphql ?? undefined}), rest: new Octokit({auth: token, baseUrl: conf.settings.api?.rest ?? undefined})}
   //Apply mocking if needed
   if (mock)
     Object.assign(api, await mocks(api))
@@ -66,7 +66,7 @@ export default async function({sandbox = false} = {}) {
     if (authenticated.has(session)) {
       const {login, token} = authenticated.get(session)
       console.debug(`metrics/app/session/${login} > authenticated with session ${session.substring(0, 6)}, using custom octokit`)
-      return {login, graphql: octokit.graphql.defaults({headers: {authorization: `token ${token}`}}), rest: new OctokitRest.Octokit({auth: token})}
+      return { login, graphql: octokit.defaults({headers: {authorization: `token ${token}`}}), rest: new OctokitRest.Octokit({auth: token})}
     }
     else if (session) {
       console.debug(`metrics/app/session > unknown session ${session.substring(0, 6)}, using default octokit`)
@@ -144,9 +144,14 @@ export default async function({sandbox = false} = {}) {
   app.get("/.plugins.base", limiter, (req, res) => res.status(200).json(conf.settings.plugins.base.parts))
   app.get("/.plugins.metadata", limiter, (req, res) => res.status(200).json(metadata))
   app.get("/.templates", limiter, (req, res) => res.status(200).json(templates))
-  app.get("/.templates/:template", limiter, (req, res) => req.params.template in conf.templates ? res.status(200).json(conf.templates[req.params.template]) : res.sendStatus(404))
-  for (const template in conf.templates)
-    app.use(`/.templates/${template}/partials`, express.static(`${conf.paths.templates}/${template}/partials`))
+  app.get("/.templates/:template", limiter, (req, res) => {
+    const decodedTemplate = decodeURIComponent(req.params.template)
+    return decodedTemplate in conf.templates ? res.status(200).json(conf.templates[decodedTemplate]) : res.sendStatus(404)
+  })
+  for (const template in conf.templates) {
+    const encodedTemplate = encodeURIComponent(template)
+    app.use(`/.templates/${encodedTemplate}/partials`, express.static(`${conf.paths.templates}/${template}/partials`))
+  }
   //Modes and extras
   app.get("/.modes", limiter, (req, res) => res.status(200).json(conf.settings.modes))
   app.get("/.extras", limiter, async (req, res) => {
@@ -416,8 +421,11 @@ export default async function({sandbox = false} = {}) {
     app.use("/.placeholders", express.static(`${conf.paths.statics}/embed/placeholders`))
     app.get("/.js/embed/app.js", limiter, (req, res) => res.sendFile(`${conf.paths.statics}/embed/app.js`))
     app.get("/.js/embed/app.placeholder.js", limiter, (req, res) => res.sendFile(`${conf.paths.statics}/embed/app.placeholder.js`))
+
     //App routes
-    app.get("/:login/:repository?", ...middlewares, async (req, res, next) => {
+    app.get("/:login/:repository", ...middlewares, handleLoginRequest)
+    app.get("/:login", ...middlewares, handleLoginRequest)
+    const handleLoginRequest = async (req, res, next) => {
       //Request params
       const login = req.params.login?.replace(/[\n\r]/g, "")
       const repository = req.params.repository?.replace(/[\n\r]/g, "")
@@ -532,7 +540,7 @@ export default async function({sandbox = false} = {}) {
         solve?.()
         _requests_refresh = true
       }
-    })
+    }
   }
   else {
     app.get("/embed/*", (req, res) => res.status(405).send("Method not allowed: this endpoint is not available"))

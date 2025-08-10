@@ -1,5 +1,5 @@
 //Imports
-import OctokitRest from "@octokit/rest"
+import { Octokit } from "@octokit/rest"
 import yargsparser from "yargs-parser"
 import { IndepthAnalyzer } from "./indepth.mjs"
 import { RecentAnalyzer } from "./recent.mjs"
@@ -47,7 +47,7 @@ export async function cli() {
 
   //Prepare call
   const imports = await import("../../../app/metrics/utils.mjs")
-  const rest = argv.token ? new OctokitRest.Octokit({auth: argv.token, baseUrl: argv["api-url"]}) : null
+  const rest = argv.token ? new Octokit({auth: argv.token, baseUrl: argv["api-url"]}) : null
 
   //Language analysis
   console.log(`analysis mode             | ${mode}`)

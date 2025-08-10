@@ -1,7 +1,7 @@
 //Imports
 import core from "@actions/core"
 import github from "@actions/github"
-import octokit from "@octokit/graphql"
+import { graphql as octokit } from "@octokit/graphql"
 import processes from "child_process"
 import fs from "fs/promises"
 import paths from "path"
@@ -179,7 +179,7 @@ function quit(reason) {
     conf.settings.token = token
     const api = {}
     const resources = {}
-    api.graphql = octokit.graphql.defaults({headers: {authorization: `token ${token}`}, baseUrl: _github_api_graphql || undefined})
+    api.graphql = octokit.defaults({headers: {authorization: `token ${token}`}, baseUrl: _github_api_graphql || undefined})
     info("GitHub GraphQL API", "ok")
     info("GitHub GraphQL API endpoint", api.graphql.baseUrl)
     const octoraw = github.getOctokit(token, {baseUrl: _github_api_rest || undefined})
@@ -230,7 +230,7 @@ function quit(reason) {
 
     //Check for new versions
     if (_notice_releases) {
-      const {data: [{tag_name: tag}]} = await rest.repos.listReleases({owner: "lowlighter", repo: "metrics"})
+      const {data: [{tag_name: tag}]} = await rest.repos.listReleases({owner: "Shadowghost", repo: "gh-metrics"})
       const current = Number(conf.package.version.match(/(\d+\.\d+)/)?.[1] ?? 0)
       const latest = Number(tag.match(/(\d+\.\d+)/)?.[1] ?? 0)
       if (latest > current)

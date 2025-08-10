@@ -1,5 +1,5 @@
 //Imports
-import OctokitRest from "@octokit/rest"
+import { Octokit } from "@octokit/rest"
 import processes from "child_process"
 import fs from "fs"
 import yaml from "js-yaml"
@@ -208,7 +208,7 @@ export default async function({log = true, sandbox = false, community = {}, extr
   //Store authenticated user
   if (conf.settings.token) {
     try {
-      conf.authenticated = (await (new OctokitRest.Octokit({auth: conf.settings.token})).users.getAuthenticated()).data.login
+      conf.authenticated = (await (new Octokit({auth: conf.settings.token})).users.getAuthenticated()).data.login
       logger(`metrics/setup > setup > authenticated as ${conf.authenticated}`)
     }
     catch (error) {
