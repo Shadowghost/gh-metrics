@@ -28,8 +28,8 @@ export default function({faker, url, options, login = faker.internet.userName()}
                 },
               },
               metrics: {
-                id: "metrics",
-                title: "Metrics",
+                id: "gh-metrics",
+                title: "GitHub Metrics",
                 score: null,
                 details: {
                   items: [

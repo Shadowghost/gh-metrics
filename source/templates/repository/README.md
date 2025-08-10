@@ -34,8 +34,8 @@ If the token owner is not the repository owner, then the `user` option must be s
 - uses: Shadowghost/gh-metrics@latest
   with:
     template: repository
-    user: lowlighter
-    repo: metrics
+    user: Shadowghost
+    repo: gh-metrics
 ```
 
 ## ℹ️ Examples workflows
@@ -48,8 +48,8 @@ with:
   template: repository
   filename: metrics.repository.svg
   token: ${{ secrets.METRICS_TOKEN_WITH_SCOPES }}
-  user: lowlighter
-  repo: metrics
+  user: Shadowghost
+  repo: gh-metrics
   plugin_lines: yes
   plugin_followup: yes
   plugin_projects: yes

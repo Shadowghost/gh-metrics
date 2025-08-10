@@ -29,7 +29,7 @@ sudo mkdir -p $METRICS_RENDERS
 echo "Renders output folder: $METRICS_RENDERS"
 
 # Source repository (picked from action name)
-METRICS_SOURCE=$(echo $METRICS_ACTION | sed -E 's/metrics.*?$//g' | sed -E 's/_//g')
+METRICS_SOURCE=$(echo $METRICS_ACTION | sed -E 's/gh-metrics.*?$//g' | sed -E 's/_//g')
 echo "Source: $METRICS_SOURCE"
 
 # Version (picked from package.json)
@@ -42,7 +42,7 @@ echo "Image tag: $METRICS_TAG"
 
 # Image name
 # Official action
-if [[ $METRICS_SOURCE == "lowlighter" ]]; then
+if [[ $METRICS_SOURCE == "Shadowghost" ]]; then
   # Use registry with pre-built images
   if [[ ! $METRICS_USE_PREBUILT_IMAGE =~ ^([Ff]alse|[Oo]ff|[Nn]o|0)$ ]]; then
     # Is released version
@@ -58,17 +58,17 @@ if [[ $METRICS_SOURCE == "lowlighter" ]]; then
     echo "Using pre-built version $METRICS_TAG, will pull docker image from GitHub registry"
     if ! docker image pull $METRICS_IMAGE; then
       echo "Failed to fetch docker image from GitHub registry, will rebuild it locally"
-      METRICS_IMAGE=metrics:$METRICS_VERSION
+      METRICS_IMAGE=gh-metrics:$METRICS_VERSION
     fi
   # Rebuild image
   else
     echo "Using an unreleased version ($METRICS_VERSION)"
-    METRICS_IMAGE=metrics:$METRICS_VERSION
+    METRICS_IMAGE=gh-metrics:$METRICS_VERSION
   fi
 # Forked action
 else
   echo "Using a forked version"
-  METRICS_IMAGE=metrics:forked-$METRICS_VERSION
+  METRICS_IMAGE=gh-metrics:forked-$METRICS_VERSION
 fi
 echo "Image name: $METRICS_IMAGE"
 

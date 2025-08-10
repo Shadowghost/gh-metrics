@@ -82,25 +82,6 @@ Several plugins have a markdown version which provides better usability, usually
 <%- await include(`partials/posts.ejs`) %>
 ```
 
-**[✒️ Recent posts from dev.to](https://dev.to/lowlighter)**
-<table>
-  <tr>
-    <td rowspan="2" width="280">
-      <img src="https://res.cloudinary.com/practicaldev/image/fetch/s--rbmokFTg--/c_imagga_scale,f_auto,fl_progressive,h_420,q_auto,w_1000/https://dev-to-uploads.s3.amazonaws.com/i/idot5ak9irxtu948bgzs.png" alt="" width="280">
-    </td>
-    <th>
-      <a href="https://dev.to/Shadowghost/gh-metrics-v3-0-the-ultimate-tool-to-pimp-your-github-profile-g7p">Metrics v3.0, the ultimate tool to pimp your GitHub profile!</a>
-    </th>
-  </tr>
-  <tr>
-    <td>
-      Metrics is an extensive SVG images generator plugged with various APIs (GitHub, Twitter, Spotify, ......
-      <br>
-      <i>Published on 4 Jan 2021</i>
-    </td>
-  </tr>
-</table>
-
 > 💡 Remember, plugins still need to be enabled and configured in workflow file!
 
 ## 🎈 Embedding SVG metrics on-the-fly

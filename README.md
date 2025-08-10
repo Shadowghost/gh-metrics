@@ -446,7 +446,7 @@ Generate metrics that can be embedded everywhere, including your GitHub profile 
 # 📚 Documentation
 
 
-> <sup>*⚠️ This is the documentation of **v3.35-beta** (`@master`/`@main` branches) which includes [unreleased features](https://github.com/Shadowghost/gh-metrics/compare/latest...master) planned for next release. See documentation for current released version [**v3.34** (`@latest` branch) here](https://github.com/Shadowghost/gh-metrics/blob/latest/README.md).* </sup>
+> <sup>*⚠️ This is the documentation of **v4.0-beta** (`@master`/`@main` branches) which includes [unreleased features](https://github.com/Shadowghost/gh-metrics/compare/latest...master) planned for next release. See documentation for current released version [**v3.99** (`@latest` branch) here](https://github.com/Shadowghost/gh-metrics/blob/latest/README.md).* </sup>
 
 
 
@@ -566,7 +566,8 @@ Use [`💬 discussions`](https://github.com/Shadowghost/gh-metrics/discussions) 
 
 ```
 MIT License
-Copyright (c) 2020-present lowlighter
+Copyright (c) 2020-2024 lowlighter
+Copyright (c) 2025-present Shadowghost
 ```
 
 ![Sponsors](https://github.com/Shadowghost/gh-metrics/blob/examples/metrics.sponsors.svg)

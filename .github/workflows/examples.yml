@@ -43,7 +43,7 @@ jobs:
     if: "github.repository == 'Shadowghost/gh-metrics'"
     steps:
       - name: Checkout repository
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Checkout examples
@@ -57,7 +57,7 @@ jobs:
           base: header, activity, community, repositories, metadata
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🧱 Core - Organization
@@ -79,7 +79,7 @@ jobs:
           config_display: large
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🧱 Core - JSON metrics
@@ -91,7 +91,7 @@ jobs:
           config_output: json
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
       - name: 🧱 Core - PNG metrics
         if: ${{ success() || failure() }}
@@ -102,7 +102,7 @@ jobs:
           config_output: png
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
       - name: 🧱 Core - Metrics insights
         if: ${{ success() || failure() }}
@@ -113,7 +113,7 @@ jobs:
           config_output: insights
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
       - name: 🧱 Core - Plugin error example
         uses: Shadowghost/gh-metrics@master
@@ -125,7 +125,7 @@ jobs:
           plugins_errors_fatal: no
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
         if: ${{ success() || failure() }}
       - name: 📅 Isometric commit calendar - Half-year calendar
         uses: Shadowghost/gh-metrics@master
@@ -136,7 +136,7 @@ jobs:
           plugin_isocalendar: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📅 Isometric commit calendar - Full-year calendar
@@ -149,7 +149,7 @@ jobs:
           plugin_isocalendar_duration: full-year
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🈷️ Languages activity - Most used
@@ -165,7 +165,7 @@ jobs:
           plugin_languages_limit: 4
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🈷️ Languages activity - Most used (with details)
@@ -182,7 +182,7 @@ jobs:
           plugin_languages_limit: 4
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🈷️ Languages activity - Recently used
@@ -200,7 +200,7 @@ jobs:
           plugin_languages_limit: 4
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🈷️ Languages activity - Indepth analysis
@@ -219,7 +219,7 @@ jobs:
           plugin_languages_analysis_timeout: 15
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ✨ Stargazers - Using classic charts
@@ -231,7 +231,7 @@ jobs:
           plugin_stargazers: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ✨ Stargazers - Using graph charts
@@ -244,7 +244,7 @@ jobs:
           plugin_stargazers_charts_type: graph
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ✨ Stargazers - With worldmap
@@ -260,7 +260,7 @@ jobs:
           plugin_stargazers_worldmap_sample: 200
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 👨‍💻 Lines of code changed - Compact display in base plugin
@@ -273,7 +273,7 @@ jobs:
           plugin_lines_delay: 30
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 👨‍💻 Lines of code changed - Repositories and diff history
@@ -293,7 +293,7 @@ jobs:
             +Shadowghost/gh-metrics
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📌 Starred topics - Labels
@@ -306,7 +306,7 @@ jobs:
           plugin_topics_limit: 12
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📌 Starred topics - Icons
@@ -320,7 +320,7 @@ jobs:
           plugin_topics_mode: icons
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🌟 Recently starred repositories - Recently starred
@@ -333,7 +333,7 @@ jobs:
           plugin_stars_limit: 3
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📜 Repository licenses - Licenses and permissions
@@ -347,7 +347,7 @@ jobs:
           plugin_licenses_setup: bash -c '[[ -f package.json ]] && npm ci || true'
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
         uses: Shadowghost/gh-metrics@master
@@ -365,7 +365,7 @@ jobs:
           plugin_licenses_ratio: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 💡 Coding habits and activity - Mildly interesting facts
@@ -380,7 +380,7 @@ jobs:
           config_timezone: Europe/Paris
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 💡 Coding habits and activity - Recent activity charts
@@ -395,7 +395,7 @@ jobs:
           config_timezone: Europe/Paris
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🏅 Repository contributors - Contributors with contributions count
@@ -410,7 +410,7 @@ jobs:
           plugin_contributors_contributions: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🏅 Repository contributors - Contributors by categories
@@ -431,7 +431,7 @@ jobs:
             }
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎟️ Follow-up of issues and pull requests - Opened on user's repositories
@@ -443,7 +443,7 @@ jobs:
           plugin_followup: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎟️ Follow-up of issues and pull requests - Opened by user
@@ -456,7 +456,7 @@ jobs:
           plugin_followup_sections: user
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎟️ Follow-up of issues and pull requests - Indepth analysis
@@ -469,7 +469,7 @@ jobs:
           plugin_followup_indepth: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎭 Comment reactions - Comment reactions
@@ -483,7 +483,7 @@ jobs:
           plugin_reactions_details: percentage
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🧑‍🤝‍🧑 People - Followers
@@ -496,7 +496,7 @@ jobs:
           plugin_people_types: followers
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🧑‍🤝‍🧑 People - Contributors and sponsors
@@ -511,7 +511,7 @@ jobs:
           plugin_people_types: contributors, stargazers, watchers, sponsors
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 💝 GitHub Sponsorships - 💝 GitHub Sponsorships
@@ -523,7 +523,7 @@ jobs:
           plugin_sponsorships: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 💕 GitHub Sponsors - Sponsors goal
@@ -537,7 +537,7 @@ jobs:
           plugin_sponsors_past: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 💕 GitHub Sponsors - Sponsors introduction
@@ -549,7 +549,7 @@ jobs:
           plugin_sponsors: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📓 Featured repositories - Featured repositories
@@ -562,7 +562,7 @@ jobs:
           plugin_repositories_featured: Shadowghost/gh-metrics
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📓 Featured repositories - Pinned repositories
@@ -575,7 +575,7 @@ jobs:
           plugin_repositories_pinned: 2
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 💬 Discussions - GitHub Discussions
@@ -588,7 +588,7 @@ jobs:
           plugin_discussions_categories_limit: 8
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 💫 Star lists - Featured star list
@@ -602,7 +602,7 @@ jobs:
           plugin_starlists_only: TC39
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 💫 Star lists - Featured star list languages
@@ -618,7 +618,7 @@ jobs:
           plugin_starlists_only: Awesome
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📆 Commit calendar - Current year calendar
@@ -630,7 +630,7 @@ jobs:
           plugin_calendar: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📆 Commit calendar - Full history calendar
@@ -643,7 +643,7 @@ jobs:
           plugin_calendar_limit: 0
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🏆 Achievements - Detailed display
@@ -656,7 +656,7 @@ jobs:
           plugin_achievements_only: sponsor, maintainer, octonaut
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🏆 Achievements - Compact display
@@ -673,7 +673,7 @@ jobs:
           plugin_achievements_threshold: X
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎩 Notable contributions - Contributions
@@ -685,7 +685,7 @@ jobs:
           plugin_notable: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎩 Notable contributions - Indepth analysis
@@ -699,7 +699,7 @@ jobs:
           plugin_notable_repositories: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📰 Recent activity - Recent activity
@@ -714,7 +714,7 @@ jobs:
           plugin_activity_filter: issue, pr, release, fork, review, ref/create
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🧮 Repositories traffic - Repositories traffic
@@ -726,7 +726,7 @@ jobs:
           plugin_traffic: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ♐ Random code snippet - JavaScript or TypeScript snippet of the day
@@ -740,7 +740,7 @@ jobs:
           plugin_code_load: 400
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎫 Gists - Gists
@@ -752,7 +752,7 @@ jobs:
           plugin_gists: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🗂️ GitHub projects - Project from a repository
@@ -766,7 +766,7 @@ jobs:
           plugin_projects_descriptions: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🙋 Introduction - Organization introduction
@@ -792,7 +792,7 @@ jobs:
           plugin_introduction: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ⏱️ Google PageSpeed - Succinct report
@@ -806,7 +806,7 @@ jobs:
           plugin_pagespeed_url: https://lecoq.io
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ⏱️ Google PageSpeed - Detailed report
@@ -821,7 +821,7 @@ jobs:
           plugin_pagespeed_url: https://lecoq.io
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ⏱️ Google PageSpeed - Screenshot
@@ -836,7 +836,7 @@ jobs:
           plugin_pagespeed_url: https://lecoq.io
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🗨️ Stack Overflow - Top answers from stackoverflow
@@ -851,7 +851,7 @@ jobs:
           plugin_stackoverflow_limit: 2
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: >-
@@ -868,7 +868,7 @@ jobs:
           plugin_anilist_limit: 1
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: >-
@@ -885,7 +885,7 @@ jobs:
           plugin_anilist_limit: 1
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🌸 Anilist watch list and reading list - Favorites characters
@@ -899,7 +899,7 @@ jobs:
           plugin_anilist_limit_characters: 22
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎼 Music activity and suggestions - Apple Music - Random track from playlist
@@ -913,7 +913,7 @@ jobs:
           plugin_music_limit: 2
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎼 Music activity and suggestions - Spotify - Random track from playlist
@@ -926,7 +926,7 @@ jobs:
           plugin_music_playlist: https://open.spotify.com/embed/playlist/3nfA87oeJw4LFVcUDjRcqi
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎼 Music activity and suggestions - Spotify - Recently listed
@@ -942,7 +942,7 @@ jobs:
           plugin_music_limit: 2
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎼 Music activity and suggestions - Spotify - Top tracks
@@ -958,7 +958,7 @@ jobs:
           plugin_music_top_type: tracks
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🎼 Music activity and suggestions - Spotify - Top artists
@@ -974,7 +974,7 @@ jobs:
           plugin_music_top_type: artists
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: >-
@@ -989,7 +989,7 @@ jobs:
             https://music.youtube.com/playlist?list=OLAK5uy_kU_uxp9TUOl9zVdw77xith8o9AknVwz9U
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ✒️ Recent posts - Recent posts
@@ -1002,7 +1002,7 @@ jobs:
           plugin_posts_source: dev.to
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ✒️ Recent posts - Recent posts with descriptions and cover images
@@ -1018,7 +1018,7 @@ jobs:
           plugin_posts_covers: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🗼 Rss feed - News from hackernews
@@ -1032,7 +1032,7 @@ jobs:
           plugin_rss_limit: 4
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ⏰ WakaTime - WakaTime
@@ -1047,7 +1047,7 @@ jobs:
           use_mocked_data: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🗳️ Leetcode - LeetCode
@@ -1060,7 +1060,7 @@ jobs:
           plugin_leetcode_sections: solved, skills, recent
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🕹️ Steam - Recently played games
@@ -1077,7 +1077,7 @@ jobs:
           use_mocked_data: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🕹️ Steam - Profile and detailed game history
@@ -1092,7 +1092,7 @@ jobs:
           use_mocked_data: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🧠 16personalities - MBTI Personality profile
@@ -1107,7 +1107,7 @@ jobs:
           plugin_16personalities_scores: no
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: ♟️ Chess - Last chess game from lichess.org
@@ -1121,7 +1121,7 @@ jobs:
           plugin_chess_platform: lichess.org
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 🥠 Fortune - Fortune
@@ -1133,7 +1133,7 @@ jobs:
           plugin_fortune: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📸 Website screenshot - XKCD of the day
@@ -1148,7 +1148,7 @@ jobs:
           plugin_screenshot_selector: "#comic img"
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 💹 Stock prices - Stock prices from Tesla
@@ -1162,7 +1162,7 @@ jobs:
           plugin_stock_symbol: TSLA
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📗 Classic template - Example
@@ -1174,7 +1174,7 @@ jobs:
           plugin_lines: yes
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📘 Repository template - Example
@@ -1183,8 +1183,8 @@ jobs:
           template: repository
           filename: metrics.repository.svg
           token: ${{ secrets.METRICS_TOKEN_WITH_SCOPES }}
-          user: lowlighter
-          repo: metrics
+          user: Shadowghost
+          repo: gh-metrics
           plugin_lines: yes
           plugin_followup: yes
           plugin_projects: yes
@@ -1202,7 +1202,7 @@ jobs:
           base: header, metadata
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📒 Markdown template - Example
@@ -1217,7 +1217,7 @@ jobs:
           output_action: commit
           committer_branch: examples
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📒 Markdown template - Example with plugins configuration for embed use
@@ -1248,7 +1248,7 @@ jobs:
           output_action: commit
           committer_branch: examples
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📒 Markdown template - Example (pdf output)
@@ -1269,7 +1269,7 @@ jobs:
           output_action: commit
           committer_branch: examples
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📕 Community templates - Using a community template
@@ -1280,7 +1280,7 @@ jobs:
           setup_community_templates: Shadowghost/gh-metrics@master:classic
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
       - name: 📕 Community templates - Using a trusted community template
@@ -1291,7 +1291,7 @@ jobs:
           setup_community_templates: Shadowghost/gh-metrics@master:terminal+trust
           output_action: none
           delay: 120
-          user: lowlighter
+          user: Shadowghost
           plugins_errors_fatal: yes
         if: ${{ success() || failure() }}
 
@@ -1325,7 +1325,7 @@ jobs:
     if: "github.repository == 'Shadowghost/gh-metrics'"
     steps:
       - name: Checkout repository
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Checkout examples

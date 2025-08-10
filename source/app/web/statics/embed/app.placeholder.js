@@ -62,7 +62,7 @@
         return await ejs.render(partial, data, {async: true, rmWhitespace: true})
       },
       //Meta-data
-      meta: {version: set.version, author: "lowlighter", generated: new Date().toGMTString().replace(/GMT$/g, "").trim()},
+      meta: { version: set.version, author: "Shadowghost", generated: new Date().toGMTString().replace(/GMT$/g, "").trim()},
       //Animated
       animated: false,
       //Display size
@@ -102,7 +102,7 @@
       user: {
         databaseId: faker.number.int(10000000),
         name: "(placeholder)",
-        login: set.user || "metrics",
+        login: set.user || "gh-metrics",
         createdAt: `${faker.date.past({years: 10})}`,
         avatarUrl: set.avatar,
         websiteUrl: options["pagespeed.url"] || "(attached website)",
@@ -149,10 +149,10 @@
                   id: faker.number.int(100000000000000).toString(),
                   created_at: faker.date.recent(),
                   entities: {
-                    mentions: [{start: 22, end: 33, username: "lowlighter"}],
+                    mentions: [{ start: 22, end: 33, username: "Shadowghost"}],
                   },
-                  text: 'Checkout metrics from  <span class="mention">@lowlighter</span>  !  <span class="hashtag">#GitHub</span> ',
-                  mentions: ["lowlighter"],
+                  text: 'Checkout metrics from  <span class="mention">@Shadowghost</span>  !  <span class="hashtag">#GitHub</span> ',
+                  mentions: ["Shadowghost"],
                 },
                 ...new Array(Number(options["tweets.limit"]) - 1).fill(null).map(_ => ({
                   id: faker.number.int(100000000000000).toString(),

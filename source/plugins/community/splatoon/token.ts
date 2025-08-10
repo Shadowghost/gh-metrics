@@ -48,7 +48,7 @@ try {
   console.log([
     "",
     green(`Succesfully authenticated to ${italic("Nintendo API")}!`),
-    green(`Complete your integration with ${italic("metrics")} by performing the following steps:`),
+    green(`Complete your integration with ${italic("gh-metrics")} by performing the following steps:`),
     "",
     bgWhite(black(`1. Create a new secret ${cyan("SPLATOON_TOKEN")} in your repository and set its value to:`)),
     "",

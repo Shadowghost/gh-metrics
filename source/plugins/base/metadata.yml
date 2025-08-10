@@ -140,6 +140,6 @@ inputs:
     type: array
     format: comma-separated
     default: .user.login
-    example: lowlighter, lowlighter@users.noreply.github.com
+    example: Shadowghost, Shadowghost@users.noreply.github.com
     global: yes
     preset: no

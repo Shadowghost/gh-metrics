@@ -4,7 +4,7 @@ export default function({faker, query, login = faker.internet.userName()}) {
   return ({
     user: {
       repository: {
-        name: "metrics",
+        name: "gh-metrics",
         owner: {login},
         createdAt: new Date().toISOString(),
         diskUsage: Math.floor(Math.random() * 10000),

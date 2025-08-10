@@ -22,7 +22,7 @@ const staged = new Set()
 
 //Web instance
 const web = {}
-web.run = async vars => await fetch(`http://localhost:3000/lowlighter?${new url.URLSearchParams(Object.fromEntries(Object.entries(vars).map(([key, value]) => [key.replace(/^plugin_/, "").replace(/_/g, "."), value])))}`).then(response => response.text())
+web.run = async vars => await fetch(`http://localhost:3000/Shadowghost?${new url.URLSearchParams(Object.fromEntries(Object.entries(vars).map(([key, value]) => [key.replace(/^plugin_/, "").replace(/_/g, "."), value])))}`).then(response => response.text())
 web.start = async () =>
   new Promise(solve => {
     let stdout = ""

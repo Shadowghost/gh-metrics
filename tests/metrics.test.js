@@ -29,15 +29,70 @@ action.run = async vars =>
 
 //Web instance
 const web = {}
-web.run = async vars => (await axios.get(`http://localhost:3000/lowlighter?${new url.URLSearchParams(Object.fromEntries(Object.entries(vars).map(([key, value]) => [key.replace(/^plugin_/, "").replace(/_/g, "."), value])))}`)).status === 200
-web.start = async () =>
-  new Promise(solve => {
-    let stdout = ""
-    web.instance = processes.spawn("node", ["source/app/web/index.mjs"], {env: {...process.env, SANDBOX: true}})
-    web.instance.stdout.on("data", data => (stdout += data, /Server ready !/.test(stdout) ? solve() : null))
-    web.instance.stderr.on("data", data => console.error(`${data}`))
+web.run = async vars => (await axios.get(`http://localhost:3000/Shadowghost?${new url.URLSearchParams(Object.fromEntries(Object.entries(vars).map(([key, value]) => [key.replace(/^plugin_/, "").replace(/_/g, "."), value])))}`)).status === 200
+web.start = async () => {
+  return new Promise((solve, reject) => {
+    let stderr = ""
+    
+    const timeout = setTimeout(() => {
+      console.error(`Web server startup timeout. stderr: ${stderr}`)
+      reject(new Error("Web server startup timeout"))
+    }, 60000) // 60 second timeout
+    
+    web.instance = processes.spawn("node", ["source/app/web/index.mjs"], {
+      env: {...process.env, SANDBOX: true},
+      stdio: ['inherit', 'pipe', 'pipe']
+    })
+    
+    web.instance.stderr.on("data", data => {
+      stderr += data
+      console.error(`Web server stderr: ${data}`)
+    })
+    
+    web.instance.on("error", (error) => {
+      clearTimeout(timeout)
+      reject(error)
+    })
+    
+    web.instance.on("exit", (code) => {
+      if (code !== 0) {
+        clearTimeout(timeout)
+        reject(new Error(`Web server exited with code ${code}. stderr: ${stderr}`))
+      }
+    })
+    
+    // Poll the server until it responds
+    const checkServer = async () => {
+      try {
+        const response = await axios.get('http://localhost:3000', { timeout: 2000 })
+        if (response.status === 200) {
+          clearTimeout(timeout)
+          console.log('Web server is ready!')
+          solve()
+          return
+        }
+      } catch (error) {
+        // Server not ready yet, continue polling
+      }
+      
+      // Check again in 1 second
+      setTimeout(checkServer, 1000)
+    }
+    
+    // Start checking after 5 seconds to give the server time to initialize
+    setTimeout(checkServer, 5000)
   })
-web.stop = async () => await web.instance.kill("SIGKILL")
+}
+web.stop = async () => {
+  if (web.instance) {
+    web.instance.kill("SIGKILL")
+    return new Promise(resolve => {
+      web.instance.on("exit", () => resolve())
+      // Fallback timeout in case kill doesn't work
+      setTimeout(resolve, 5000)
+    })
+  }
+}
 
 //Web instance placeholder
 require("./../source/app/web/statics/embed/app.placeholder.js")
@@ -62,8 +117,8 @@ placeholder.run = async vars => {
     plugins: {enabled: {...enabled, base}, options},
     config,
     version: "TEST",
-    user: "lowlighter",
-    avatar: "https://github.com/lowlighter.png",
+    user: "Shadowghost",
+    avatar: "https://github.com/Shadowghost.png",
   }) === "string"
 }
 
@@ -73,7 +128,7 @@ beforeAll(async () => {
   await fs.promises.rm(path.join(__dirname, "../source/templates/@classic"), {recursive: true, force: true})
   //Start web instance
   await web.start()
-})
+}, 70000)
 //Teardown
 afterAll(async () => {
   //Stop web instance
@@ -113,7 +168,7 @@ describe("GitHub Action", () =>
   describe.each([
     ["classic", {}],
     ["terminal", {}],
-    ["repository", {repo: "metrics"}],
+    ["repository", {repo: "gh-metrics"}],
   ])("Template : %s", (template, query) => {
     for (const [name, input, {skip = [], modes = [], timeout} = {}] of tests) {
       if ((skip.includes(template)) || ((modes.length) && (!modes.includes("action"))))
@@ -127,7 +182,7 @@ describe("Web instance", () =>
   describe.each([
     ["classic", {}],
     ["terminal", {}],
-    ["repository", {repo: "metrics"}],
+    ["repository", {repo: "gh-metrics"}],
   ])("Template : %s", (template, query) => {
     for (const [name, input, {skip = [], modes = [], timeout} = {}] of tests) {
       if ((skip.includes(template)) || ((modes.length) && (!modes.includes("web"))))

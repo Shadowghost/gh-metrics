@@ -437,7 +437,7 @@ To reduce filesize and decrease loading time, *metrics* offers several optimizat
 
 ## 🐳 Faster execution with prebuilt docker images
 
-When using `Shadowghost/gh-metrics` official releases as a GitHub Action, a prebuilt docker container image will be pulled from [GitHub Container Registry](https://github.com/users/lowlighter/packages/container/package/metrics). It allows to significantly reduce workflow execution time.
+When using `Shadowghost/gh-metrics` official releases as a GitHub Action, a prebuilt docker container image will be pulled from [GitHub Container Registry](https://github.com/users/Shadowghost/packages/container/package/gh-metrics). It allows to significantly reduce workflow execution time.
 
 > 💡 This option is enabled by default!
 
