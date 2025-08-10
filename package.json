@@ -2,6 +2,7 @@
   "name": "gh-metrics",
   "version": "4.0.0-beta",
   "description": "An infographics generator with 40+ plugins and 300+ options to display stats about your GitHub account and render them as SVG, Markdown, PDF or JSON!",
+  "type": "module",
   "main": "index.mjs",
   "scripts": {
     "start": "node source/app/web/index.mjs",

@@ -34,7 +34,8 @@ export default async function metadata({log = true, diff = false} = {}) {
         logger("Primary URL returned 404, falling back to lowlighter repository")
         const fallbackResponse = await fetch("https://raw.githubusercontent.com/lowlighter/metrics/latest/action.yml")
         previous = yaml.load(await fallbackResponse.text())
-      } else {
+      }
+      else {
         previous = yaml.load(await response.text())
       }
     }
@@ -210,11 +211,11 @@ metadata.plugin = async function({__plugins, __templates, name, logger}) {
                   try {
                     value = JSON.parse(value)
                   }
-                  catch (error) {
+                  catch {
                     try {
                       value = JSON.parse(decodeURIComponent(value))
                     }
-                    catch (error) {
+                    catch {
                       logger(`metrics/inputs > failed to parse json : ${value}`)
                       value = JSON.parse(defaulted)
                     }

@@ -78,7 +78,7 @@ export class IndepthAnalyzer extends Analyzer {
           this.debug("skipping import of gpg keys as we are not in GitHub Actions environment")
         }
       }
-      catch (error) {
+      catch {
         this.debug(`an error occurred while importing gpg ${id}, skipping...`)
       }
       finally {
