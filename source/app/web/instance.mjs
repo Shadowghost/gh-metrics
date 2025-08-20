@@ -312,7 +312,7 @@ export default async function({sandbox = false} = {}) {
   if (conf.settings.modes.includes("insights")) {
     console.debug("metrics/app > setup insights mode")
     //Legacy routes
-    app.get("/about/*", (req, res) => res.redirect(req.path.replace("/about/", "/insights/")))
+    app.get("/about/:path", (req, res) => res.redirect(req.path.replace("/about/", "/insights/")))
     //Static routes
     app.get("/insights/", limiter, (req, res) => res.sendFile(`${conf.paths.statics}/insights/index.html`))
     app.get("/insights/index.html", limiter, (req, res) => res.sendFile(`${conf.paths.statics}/insights/index.html`))
@@ -408,8 +408,8 @@ export default async function({sandbox = false} = {}) {
     })
   }
   else {
-    app.get("/about/*", (req, res) => res.redirect(req.path.replace("/about/", "/insights/")))
-    app.get("/insights/*", (req, res) => res.status(405).send("Method not allowed: this endpoint is not available"))
+    app.get("/about/:path", (req, res) => res.redirect(req.path.replace("/about/", "/insights/")))
+    app.get("/insights/:path", (req, res) => res.status(405).send("Method not allowed: this endpoint is not available"))
   }
 
   //Metrics embed
@@ -423,8 +423,6 @@ export default async function({sandbox = false} = {}) {
     app.get("/.js/embed/app.placeholder.js", limiter, (req, res) => res.sendFile(`${conf.paths.statics}/embed/app.placeholder.js`))
 
     //App routes
-    app.get("/:login/:repository", ...middlewares, handleLoginRequest)
-    app.get("/:login", ...middlewares, handleLoginRequest)
     const handleLoginRequest = async (req, res, next) => {
       //Request params
       const login = req.params.login?.replace(/[\n\r]/g, "")
@@ -541,9 +539,11 @@ export default async function({sandbox = false} = {}) {
         _requests_refresh = true
       }
     }
+    app.get("/:login/:repository", ...middlewares, handleLoginRequest)
+    app.get("/:login", ...middlewares, handleLoginRequest)
   }
   else {
-    app.get("/embed/*", (req, res) => res.status(405).send("Method not allowed: this endpoint is not available"))
+    app.get("/embed/:path", (req, res) => res.status(405).send("Method not allowed: this endpoint is not available"))
   }
 
   //Control endpoints

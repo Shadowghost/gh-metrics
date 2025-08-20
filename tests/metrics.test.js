@@ -87,9 +87,15 @@ web.stop = async () => {
   if (web.instance) {
     web.instance.kill("SIGKILL")
     return new Promise(resolve => {
-      web.instance.on("exit", () => resolve())
+      web.instance.on("exit", () => {
+        web.instance = null
+        resolve()
+      })
       // Fallback timeout in case kill doesn't work
-      setTimeout(resolve, 5000)
+      setTimeout(() => {
+        web.instance = null
+        resolve()
+      }, 5000)
     })
   }
 }
