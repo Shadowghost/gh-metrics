@@ -56,22 +56,22 @@ jobs:
         post_comment: 0
         dictionary_source_prefixes: >
           {
-            "cspell": "https://raw.githubusercontent.com/check-spelling/cspell-dicts/v20241114/dictionaries/"
+            "cspell": "https://raw.githubusercontent.com/check-spelling/cspell-dicts/refs/heads/main/dictionaries/"
           }
         extra_dictionaries:
+          cspell:aws/aws.txt
+          cspell:bash/bash-words.txt
+          cspell:css/css.txt
+          cspell:django/django.txt
           cspell:html/html.txt
           cspell:filetypes/filetypes.txt
-          cspell:css/css.txt
           cspell:fullstack/fullstack.txt
-          cspell:django/django.txt
+          cspell:node/dict/node.txt
           cspell:npm/npm.txt
-          cspell:aws/aws.txt
-          cspell:software-terms/software-terms.txt
-          cspell:software-terms/dict/softwareTerms.txt
           cspell:php/dict/php.txt
           cspell:python/src/common/extra.txt
-          cspell:node/dict/node.txt
           cspell:python/src/python/python-lib.txt
+          cspell:software-terms/software-terms.txt
         extra_dictionary_limit: 50
 
   comment:
