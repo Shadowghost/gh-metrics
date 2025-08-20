@@ -1,1 +1,1 @@
-Presets from [lowlighter/metrics](https://github.com/lowlighter/metrics)!
+Presets from [Shadowghost/gh-metrics](https://github.com/Shadowghost/gh-metrics)!
