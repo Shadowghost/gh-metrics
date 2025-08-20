@@ -25,7 +25,8 @@
     ],
     "rebaseWhen": "conflicted",
     "ignorePaths": [
-        "**/node_modules/**"
+        "**/node_modules/**",
+        ".github/workflows/examples.yml"
     ],
     "lockFileMaintenance": {
         "enabled": true,
