@@ -35,6 +35,7 @@ Shadowghost
 shas
 splatoon
 Splatnet
+trixie
 ssh
 statink
 STATINK
