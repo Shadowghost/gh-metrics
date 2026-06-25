@@ -71,7 +71,7 @@
   "devDependencies": {
     "dprint": "0.50.1",
     "eslint": "9.33.0",
-    "jest": "30.0.5"
+    "jest": "30.4.2"
   },
   "jest": {
     "testEnvironment": "node",
