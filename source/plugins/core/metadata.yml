@@ -317,6 +317,15 @@ inputs:
     default: yes
     global: yes
 
+  config_watermark:
+    description: |
+      Display the "with Shadowghost/gh-metrics" watermark in the footer
+
+      Disabled by default
+    type: boolean
+    default: no
+    global: yes
+
   config_base64:
     description: |
       Base64-encoded images
