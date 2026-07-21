@@ -48,6 +48,36 @@ async function wait(seconds) {
   await new Promise(solve => setTimeout(solve, seconds * 1000))
 }
 
+//GraphQL rate-limit-aware wrapper
+//Retries individual requests that hit GitHub's secondary rate limit (HTTP 403/429),
+//honoring the "retry-after" header, so a single throttled request self-heals instead of
+//baking an "Unexpected error" badge into the render.
+function graphqlWithRetry(graphql, {retries = 3, fallbackDelay = 60} = {}) {
+  const wrapped = async (...args) => {
+    for (let attempt = 0; ; attempt++) {
+      try {
+        return await graphql(...args)
+      }
+      catch (error) {
+        const status = error?.status ?? error?.response?.status
+        const text = `${error?.message ?? ""} ${error?.response?.data?.message ?? ""}`
+        const rateLimited = ((status === 403) || (status === 429)) && (/rate limit/i.test(text))
+        if ((!rateLimited) || (attempt >= retries))
+          throw error
+        const retryAfter = Number(error?.response?.headers?.["retry-after"])
+        const delay = ((Number.isFinite(retryAfter) && (retryAfter > 0)) ? retryAfter : fallbackDelay) * (attempt + 1)
+        console.warn(`::warning::GraphQL rate limit hit (status ${status}), retry ${attempt + 1}/${retries} after ${delay}s`)
+        await wait(delay)
+      }
+    }
+  }
+  //Preserve octokit interface bits used elsewhere
+  wrapped.defaults = graphql.defaults
+  wrapped.endpoint = graphql.endpoint
+  wrapped.baseUrl = graphql.baseUrl
+  return wrapped
+}
+
 //Retry wrapper
 async function retry(func, {retries = 1, delay = 0} = {}) {
   let error = null
@@ -179,7 +209,7 @@ function quit(reason) {
     conf.settings.token = token
     const api = {}
     const resources = {}
-    api.graphql = octokit.defaults({headers: {authorization: `token ${token}`}, baseUrl: _github_api_graphql || undefined})
+    api.graphql = graphqlWithRetry(octokit.defaults({headers: {authorization: `token ${token}`}, baseUrl: _github_api_graphql || undefined}))
     info("GitHub GraphQL API", "ok")
     info("GitHub GraphQL API endpoint", api.graphql.baseUrl)
     const octoraw = github.getOctokit(token, {baseUrl: _github_api_rest || undefined})

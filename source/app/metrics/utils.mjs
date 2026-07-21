@@ -162,6 +162,23 @@ export function formatters({timeZone} = {}) {
         error = error.response?.data ?? null
         throw {error: {message, instance: error}}
       }
+      //Octokit/HTTP error (e.g. GraphQL API errors, rate limits) which are not axios errors
+      if ((typeof error.status === "number") && (error.response)) {
+        const status = error.status
+        message = `API error: ${status}`
+        const data = error.response?.data ?? null
+        //Secondary rate limit gets an explicit, actionable label
+        if (((status === 403) || (status === 429)) && (/secondary rate limit/i.test(`${error.message ?? ""} ${data?.message ?? ""}`)))
+          message = `API error: ${status} (secondary rate limit, please retry later)`
+        else {
+          const description = descriptions?.[status] ?? data?.errors?.[0]?.message ?? data?.message ?? error.message ?? null
+          if (description)
+            message += ` (${description})`
+        }
+        //Error data
+        console.debug(data)
+        throw {error: {message, instance: data ?? error}}
+      }
       throw {error: {message, instance: error}}
     }
     catch (error) {
