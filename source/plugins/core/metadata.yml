@@ -326,6 +326,15 @@ inputs:
     default: no
     global: yes
 
+  config_timestamp:
+    description: |
+      Display the "Last updated" timestamp in the footer
+
+      Disabled by default
+    type: boolean
+    default: no
+    global: yes
+
   config_base64:
     description: |
       Base64-encoded images

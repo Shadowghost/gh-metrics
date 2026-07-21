@@ -35,7 +35,9 @@
 
       <% if (base.metadata) { %>
         <footer>
-          <span>Last updated <%= meta.generated %><% if (config.watermark) { %> with Shadowghost/gh-metrics@<%= meta.version %><% } %></span>
+          <% if ((config.timestamp)||(config.watermark)) { %>
+          <span><% if (config.timestamp) { %>Last updated <%= meta.generated %><% } %><% if (config.watermark) { %><% if (config.timestamp) { %> with <% } %>Shadowghost/gh-metrics@<%= meta.version %><% } %></span>
+          <% } %>
         </footer>
       <% } %>
 

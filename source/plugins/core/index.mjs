@@ -6,7 +6,7 @@
 //Setup
 export default async function({login, q}, {conf, data, rest, graphql, plugins, queries, account, convert, template, callbacks}, {pending, imports}) {
   //Load inputs
-  const {"config.animations": animations, "config.watermark": watermark, "config.display": display, "config.timezone": _timezone, "config.base64": _base64, "debug.flags": dflags} = imports.metadata.plugins.core.inputs({data, account, q})
+  const {"config.animations": animations, "config.watermark": watermark, "config.timestamp": timestamp, "config.display": display, "config.timezone": _timezone, "config.base64": _base64, "debug.flags": dflags} = imports.metadata.plugins.core.inputs({data, account, q})
   imports.metadata.templates[template].check({q, account, format: convert})
 
   //Base64 images
@@ -56,6 +56,10 @@ export default async function({login, q}, {conf, data, rest, graphql, plugins, q
   //Watermark
   data.config.watermark = watermark
   console.debug(`metrics/compute/${login} > watermark ${data.config.watermark ? "enabled" : "disabled"}`)
+
+  //Timestamp
+  data.config.timestamp = timestamp
+  console.debug(`metrics/compute/${login} > timestamp ${data.config.timestamp ? "enabled" : "disabled"}`)
 
   //Extras features
   const extras = conf.settings?.extras?.features ?? conf.settings?.extras?.default ?? false

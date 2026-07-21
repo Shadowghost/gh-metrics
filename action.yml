@@ -165,6 +165,10 @@ inputs:
     description: Display the "with Shadowghost/gh-metrics" watermark in the footer
     default: <default-value>
 
+  config_timestamp:
+    description: Display the "Last updated" timestamp in the footer
+    default: <default-value>
+
   config_base64:
     description: Base64-encoded images
     default: <default-value>
